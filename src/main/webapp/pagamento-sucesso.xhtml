@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+
+<ui:composition template="layout.xhtml">
+	<ui:define name="head">	
+		Obrigado pela compra! <br/><br/> 
+		Faça o download do E-book Em <h:outputLink value="http://alga.works/livro-javaee" >http://alga.works/livro-javaee</h:outputLink>
+	</ui:define>
+	
+	<ui:define name="body">
+		<h:form>
+			<h:panelGroup layout="block" styleClass="form-group">
+				<h:messages 
+					infoClass="alert alert-info" 
+					fatalClass="alert alert-danger"
+					errorClass="alert alert-warning"
+					 
+					style="list-style:none; margin:0; padding:0" 
+				/>
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="form-group"
+				rendered="#{flash.rp ne null}"
+			>
+				<h:outputLabel value="Nome do produto:" styleClass="control-label"/>
+							
+				<h:panelGroup layout="block" styleClass="static-control-label">
+					#{flash.rp.item}
+				</h:panelGroup>
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="form-group"
+				rendered="#{flash.rp ne null}"
+			>
+				<h:outputLabel value="Valor:" styleClass="control-label"/>
+							
+				<h:panelGroup layout="block" styleClass="static-control-label">
+					#{flash.rp.valor}
+				</h:panelGroup>
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="form-group"
+				rendered="#{flash.rp ne null}"
+			>
+				<h:outputLabel value="Número do cartão de crédito:" styleClass="control-label"/>
+				
+				<h:panelGroup layout="block" styleClass="static-control-label">
+					********
+				</h:panelGroup>
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="form-group"
+				rendered="#{flash.rp ne null}"
+			>
+				<h:outputLabel value="Desconto:" styleClass="control-label"/>
+							
+				<h:panelGroup layout="block" styleClass="static-control-label">
+					#{flash.rp.desconto}
+				</h:panelGroup>
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="form-group">
+				<h:outputLabel value="Download:" styleClass="control-label"/>
+							
+				<h:panelGroup layout="block" styleClass="static-control-label">
+					<h:outputLink value="http://alga.works/livro-javaee" >http://alga.works/livro-javaee</h:outputLink>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:form>			
+	</ui:define>
+</ui:composition>
+</html>
